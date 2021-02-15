@@ -1,9 +1,31 @@
 = Python Project Template
 
-https://github.com/cookiecutter/cookiecutter[Cookiecutter]
+To create a new project, install and run https://github.com/cookiecutter/cookiecutter[Cookiecutter]
 
-== Dependency Management (draft)
+[source,console]
+----
+$ cookiecutter https://github.com/andreaslongo/cc-python.git
+----
 
+Or install and use https://github.com/pipxproject/pipx[pipx] (recommended)
+
+[source,console]
+----
+$ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
+----
+
+
+== This template uses
+
+- https://www.gnu.org/software/make/[GNU Make] for automation
+- https://github.com/pyenv/pyenv[pyenv] for Python version management
+- https://github.com/jazzband/pip-tools[pip-tools] for Python dependency management
+- https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
+
+
+== Python Dependency Management
+
+[source,console]
 ----
 python-project/
 | requirements-dev.in
@@ -12,16 +34,15 @@ python-project/
 | requirements.txt
 ----
 
-The `.in` files are dependencies and the `.txt` files are the pinned and hashed results of `pip-compile`.
+- `.in` files are dependencies
+- `.txt` files are pinned and hashed results of `pip-compile`
 
-.Example
-- https://github.com/pypa/warehouse/tree/master/requirements
+=== Environments
 
+Depending on the environment, the dependencies of Python packages may vary.
 
-IMPORTANT: `pip-compile` has no proper resolver.
-It has to run under the *same Python version as the project it’s locking and in the same environment*, or else conditional dependencies will not work correctly.
+Run `pip-compile` on each environment to generate different `.txt` files, valid for each environment.
+You can use the same `.in` file for all environments.
 
-Pinning deps inside of containers
-
-- https://alexwlchan.net/2017/10/pip-tools/
-- https://github.com/jazzband/pip-tools#cross-environment-usage-of-requirementsinrequirementstxt-and-pip-compile
+- Environment (simplified) = Operating System + Python version (3.8, 3.9, ...) + Python interpreter (CPython, PyPy, ...)
+- https://github.com/jazzband/pip-tools#cross-environment-usage-of-requirementsinrequirementstxt-and-pip-compile[Cross-environment usage of `requirements.in`/`requirements.txt` and `pip-compile`]
