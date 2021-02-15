@@ -1,0 +1,25 @@
+= {{cookiecutter.project_name}}
+
+== Contributing
+
+Clone repository
+
+[source,console]
+----
+$ git clone {{cookiecutter.github_repository}}
+$ cd {{cookiecutter.project_repository}}
+----
+
+Create and enable virtual environment (requires `pyenv virtualenv`)
+
+[source,console]
+----
+$ make venv
+----
+
+Initialize project for development (requires `pre-commit`)
+
+[source,console]
+----
+$ make init
+----

@@ -1,0 +1,27 @@
+= Python Project Template
+
+https://github.com/cookiecutter/cookiecutter[Cookiecutter]
+
+== Dependency Management (draft)
+
+----
+python-project/
+| requirements-dev.in
+| requirements-dev.txt
+| requirements.in
+| requirements.txt
+----
+
+The `.in` files are dependencies and the `.txt` files are the pinned and hashed results of `pip-compile`.
+
+.Example
+- https://github.com/pypa/warehouse/tree/master/requirements
+
+
+IMPORTANT: `pip-compile` has no proper resolver.
+It has to run under the *same Python version as the project it’s locking and in the same environment*, or else conditional dependencies will not work correctly.
+
+Pinning deps inside of containers
+
+- https://alexwlchan.net/2017/10/pip-tools/
+- https://github.com/jazzband/pip-tools#cross-environment-usage-of-requirementsinrequirementstxt-and-pip-compile

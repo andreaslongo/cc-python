@@ -1,0 +1,12 @@
+{
+  "github_name": "andreaslongo",
+  "project_name": "Python Project",
+
+  "create_venv": ["yes", "no"],
+  "git_init": ["yes", "no"],
+  "git_hooks": ["yes", "no"],
+
+  "project_repository": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+  "github_repository": "git@github.com:{{ cookiecutter.github_name }}/{{ cookiecutter.project_repository }}.git",
+  "project_slug": "{{ cookiecutter.project_repository.replace('-', '_') }}"
+}
