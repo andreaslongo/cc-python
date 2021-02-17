@@ -1,6 +1,12 @@
+###############################################################################
+# Environment
+###############################################################################
+
+.PHONY: venv init update install-dev install-prod git-hooks update-deps compile-deps
+
 venv:
-	pyenv virtualenv 3.9.1 test-project
-	pyenv local test-project
+	pyenv virtualenv 3.9.1 {{cookiecutter.project_repository}}
+	pyenv local {{cookiecutter.project_repository}}
 
 init: install-dev git-hooks
 
@@ -30,4 +36,18 @@ compile-deps:
 	python -m piptools compile --allow-unsafe --build-isolation --generate-hashes requirements.in
 	python -m piptools compile --allow-unsafe --build-isolation --generate-hashes requirements-dev.in
 
-.PHONY: venv init update install-dev install-prod git-hooks update-deps compile-deps
+
+###############################################################################
+# Code
+###############################################################################
+
+.PHONY: test coverage report
+
+test:
+	pytest --cov --cov-report term-missing
+
+coverage:
+	pytest --cov --cov-report term-missing --cov-report html
+
+report: coverage
+	firefox htmlcov/index.html
