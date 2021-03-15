@@ -41,9 +41,9 @@ compile-deps:
 # Code
 ###############################################################################
 
-.PHONY: test coverage report
+.PHONY: test coverage report lint
 
-test:
+test: lint
 	pytest --cov --cov-report term-missing
 
 coverage:
@@ -51,3 +51,9 @@ coverage:
 
 report: coverage
 	firefox htmlcov/index.html
+
+lint:
+	mypy .
+	@#flake8 .
+	@#black . --check
+	@#isort . --check-only --diff
