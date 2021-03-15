@@ -1,5 +1,7 @@
 = Python Project Template
 
+Use this template to bootstrap new Python projects fast and unified.
+
 To create a new project, install and run https://github.com/cookiecutter/cookiecutter[Cookiecutter]
 
 [source,console]
@@ -15,12 +17,14 @@ $ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
 ----
 
 
-== This template uses
+== Features
 
 - https://www.gnu.org/software/make/[GNU Make] for automation
+- https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
 - https://github.com/pyenv/pyenv[pyenv] for Python version management
 - https://github.com/jazzband/pip-tools[pip-tools] for Python dependency management
-- https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
+- https://pytest.org/[pytest] for unit tests
+- http://mypy-lang.org/[mypy] for static type checks
 
 
 == Python Dependency Management
