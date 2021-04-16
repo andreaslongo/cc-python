@@ -26,6 +26,15 @@ $ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
 - https://pytest.org/[pytest] for unit tests
 - http://mypy-lang.org/[mypy] for static type checks
 
+////
+TODO:
+- Code formatter (black?) + pre-commit hook, ci/cd
+- Unit tests (pytest)
+- Linter (flake8?)
+- Type checker (mypy)
+- Automated refactoring (sourcery?)
+////
+
 
 == Python Dependency Management
 

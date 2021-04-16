@@ -1,0 +1,9 @@
+- License file (check github template)
+- Python version pinning?
+- Tox/nox?
+
+- Code formatter (black?) + pre-commit hook, ci/cd + flake8-black or standalone?
+- Unit tests (pytest) + pytest-mock?
+- Linter (flake8?)
+- Type checker (mypy)
+- Automated refactoring (sourcery?)
