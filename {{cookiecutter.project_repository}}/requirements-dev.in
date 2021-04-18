@@ -1,9 +1,9 @@
 -c requirements.txt
 black
-coverage
 flake8
 flake8-bandit
 flake8-bugbear
 mypy
 pip-tools
 pytest
+pytest-cov
