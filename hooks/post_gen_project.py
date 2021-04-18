@@ -3,14 +3,14 @@ from subprocess import run
 
 
 if __name__ == "__main__":
-    if "yes" in "{{ cookiecutter.git_init|lower }}":
+    if "{{ cookiecutter.create_git_repository | lower }}" == "y":
         run(split("git init"))
         run(split("git remote add origin {{ cookiecutter.github_repository }}"))
         run(split("git add ."))
         run(split('git commit -m "Initial commit"'))
 
-    if "yes" in "{{ cookiecutter.git_hooks|lower }}":
-        run(split("make git-hooks"))
+    if "{{ cookiecutter.install_git_hooks | lower }}" == "y":
+        run(split("make _install_git_hooks"))
 
-    if "yes" in "{{ cookiecutter.create_venv|lower }}":
+    if "{{ cookiecutter.create_python_virtual_environment | lower }}" == "y":
         run(split("make venv"))

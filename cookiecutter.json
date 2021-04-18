@@ -2,9 +2,9 @@
   "github_user": "andreaslongo",
   "project_name": "Python Project",
 
-  "create_venv": ["yes", "no"],
-  "git_init": ["yes", "no"],
-  "git_hooks": ["yes", "no"],
+  "create_git_repository": "y",
+  "install_git_hooks": "y",
+  "create_python_virtual_environment": "y",
 
   "project_repository": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "github_repository": "git@github.com:{{ cookiecutter.github_user }}/{{ cookiecutter.project_repository }}.git",
