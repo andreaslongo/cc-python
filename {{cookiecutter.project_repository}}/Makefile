@@ -48,8 +48,9 @@ _install_production:
 	python -m pip install --require-hashes --no-deps --upgrade --requirement requirements.txt
 
 
-.PHONY: _compile_dependencies
-_compile_dependencies:
+.PHONY: compile_dependencies
+compile_dependencies:
+	python -m pip install --upgrade pip setuptools wheel pip-tools
 	python -m piptools compile --allow-unsafe --build-isolation --generate-hashes requirements.in
 	python -m piptools compile --allow-unsafe --build-isolation --generate-hashes requirements-dev.in
 
