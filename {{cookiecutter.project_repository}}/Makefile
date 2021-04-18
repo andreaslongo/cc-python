@@ -54,6 +54,6 @@ report: coverage
 
 lint:
 	mypy .
-	@#flake8 .
 	@#black . --check
+	flake8 .
 	@#isort . --check-only --diff

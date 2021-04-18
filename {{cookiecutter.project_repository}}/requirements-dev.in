@@ -3,3 +3,5 @@ mypy
 pip-tools
 pytest
 pytest-cov
+flake8
+flake8-bugbear

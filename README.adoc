@@ -19,21 +19,13 @@ $ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
 
 == Features
 
-- https://www.gnu.org/software/make/[GNU Make] for automation
+- https://www.gnu.org/software/make/[GNU Make] for workflow automation
 - https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
 - https://github.com/pyenv/pyenv[pyenv] for Python version management
 - https://github.com/jazzband/pip-tools[pip-tools] for Python dependency management
 - https://pytest.org/[pytest] for unit tests
 - http://mypy-lang.org/[mypy] for static type checks
-
-////
-TODO:
-- Code formatter (black?) + pre-commit hook, ci/cd
-- Unit tests (pytest)
-- Linter (flake8?)
-- Type checker (mypy)
-- Automated refactoring (sourcery?)
-////
+- https://flake8.pycqa.org[flake8] for static code analysis
 
 
 == Python Dependency Management
