@@ -27,6 +27,7 @@ $ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
 - http://mypy-lang.org/[mypy] for static type checks
 - https://flake8.pycqa.org[flake8] for static code analysis
 - https://github.com/PyCQA/bandit[Bandit] for security audit
+- https://github.com/psf/black[Black] for code format
 
 
 == Python Dependency Management

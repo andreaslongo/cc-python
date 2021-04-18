@@ -73,5 +73,5 @@ report:
 lint:
 	mypy .
 	flake8 .
-	@#black . --check
+	black . --check
 	@#isort . --check-only --diff
