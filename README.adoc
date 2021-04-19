@@ -21,6 +21,7 @@ $ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
 
 - https://www.gnu.org/software/make/[GNU Make] for workflow automation
 - https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
+- https://github.com/andreoliwa/nitpick[Nitpick] for project configuration management
 - https://github.com/pyenv/pyenv[pyenv] for Python version management
 - https://github.com/jazzband/pip-tools[pip-tools] for Python dependency management
 - https://pytest.org/[pytest] for unit tests

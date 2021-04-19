@@ -10,6 +10,9 @@ venv:
 
 .PHONY: init
 init: _install_development _install_git_hooks
+	# Generate project config files
+	# TODO: Include in initial commit (don't rely on cookiecutter?)
+	nitpick --offline run
 
 
 .PHONY: _install_development
@@ -17,6 +20,8 @@ _install_development:
 	python -m pip install --no-deps --upgrade pip setuptools wheel
 	python -m pip install --no-deps --editable .
 	python -m pip install --require-hashes --no-deps --upgrade --requirement requirements.txt  --requirement requirements-dev.txt
+	# Workaround until new nitpick release (for '.nitpick.toml' config)
+	python -m pip install git+https://github.com/andreoliwa/nitpick.git
 
 
 .PHONY: _install_git_hooks
@@ -72,6 +77,7 @@ report:
 
 .PHONY: lint
 lint:
+	nitpick --offline run --check
 	mypy .
 	flake8 .
 	black . --check

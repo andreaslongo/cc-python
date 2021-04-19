@@ -1,0 +1,2 @@
+[tool.nitpick]
+style = ".nitpick-style.toml"

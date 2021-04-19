@@ -1,37 +1,37 @@
-[tool:pytest]
-addopts =
-    --strict-config
-    --strict-markers
-    --doctest-modules
-    --cov
-    --cov-report=term-missing
-    #--tb=short
+[nitpick]
 
-[coverage:run]
-branch = True
-source = .
-omit = setup.py
+[nitpick.files.present]
 
 
-[mypy]
-strict = True
-pretty = True
-#show_column_numbers = True
-#show_error_codes = True
-#show_error_context = True
+["setup.cfg"."tool:pytest"]
+addopts = "--strict-config --strict-markers --doctest-modules --cov --cov-report=term-missing"
+#--tb=short
 
-[mypy-setuptools]
-ignore_missing_imports = True
+["setup.cfg"."coverage:run"]
+branch = true
+source = "."
+omit = "setup.py"
 
 
-[flake8]
-show-source = True
-doctests = True
+["setup.cfg".mypy]
+strict = true
+pretty = true
+#show_column_numbers = true
+#show_error_codes = true
+#show_error_context = true
+
+["setup.cfg".mypy-setuptools]
+ignore_missing_imports = true
+
+
+["setup.cfg".flake8]
+show-source = true
+doctests = true
 max-line-length = 88
 max-complexity = 6
-#statistics = False
+#statistics = false
 
-select = B, B9, C, E, F, S, W
+select = "B, B9, C, E, F, S, W"
 # B: Bugbear
 # B9: Bugbear opinions
 # C: Complexity (McCabe)
@@ -40,7 +40,7 @@ select = B, B9, C, E, F, S, W
 # S: Security (Bandit)
 # W: Warnings (pycodestyle)
 
-# per-file-ignores = test/*:S101
+per-file-ignores = "test/*:S101"
 # ignore = B950, E203, W503
 # B008: Do not perform function calls in argument defaults.
 # B950: Line too long (line is > max-line-length + 10%)
@@ -50,4 +50,5 @@ select = B, B9, C, E, F, S, W
 # E501: Line too long (82 > 79 characters), handled by Bugbear B950
 # E722: Bare except, handled by Bugbear B001
 # F811: Redefinition of unused function/method
+# S101: Use of assert detected.
 # W503: Line break before binary operator, not PEP 8 compliant
