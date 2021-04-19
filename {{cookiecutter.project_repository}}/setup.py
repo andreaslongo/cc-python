@@ -5,5 +5,5 @@ setup(
     name="{{ cookiecutter.project_repository }}",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    python_requires=">=3'
+    python_requires=">=3",
 )
