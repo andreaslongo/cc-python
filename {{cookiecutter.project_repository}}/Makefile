@@ -60,6 +60,13 @@ compile_dependencies:
 	python -m piptools compile --allow-unsafe --build-isolation --generate-hashes requirements-dev.in
 
 
+.PHONY: clean
+clean:
+	rm -rf .cache
+	rm -rf .mypy_cache
+	rm -rf .coverage
+	rm -rf .pytest_cache
+
 ###############################################################################
 # Code
 ###############################################################################
