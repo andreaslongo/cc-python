@@ -20,8 +20,6 @@ _install_development:
 	python -m pip install --no-deps --upgrade pip setuptools wheel
 	python -m pip install --no-deps --editable .
 	python -m pip install --require-hashes --no-deps --upgrade --requirement requirements.txt  --requirement requirements-dev.txt
-	# Workaround until new nitpick release (for '.nitpick.toml' config)
-	python -m pip install git+https://github.com/andreoliwa/nitpick.git
 
 
 .PHONY: _install_git_hooks
