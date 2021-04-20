@@ -61,9 +61,6 @@ compile_dependencies:
 .PHONY: clean
 clean:
 	rm -rf .cache
-	rm -rf .mypy_cache
-	rm -rf .coverage
-	rm -rf .pytest_cache
 
 ###############################################################################
 # Code
@@ -76,8 +73,8 @@ test: lint
 
 .PHONY: report
 report:
-	pytest --cov-report html
-	firefox htmlcov/index.html
+	pytest --cov-report html:.cache/coverage-report
+	firefox .cache/coverage-report/index.html
 
 
 .PHONY: lint

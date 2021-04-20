@@ -4,6 +4,7 @@
 
 
 ["setup.cfg"."tool:pytest"]
+cache_dir = ".cache/pytest"
 addopts = "--strict-config --strict-markers --doctest-modules --cov --cov-report=term-missing"
 #--tb=short
 
@@ -11,11 +12,13 @@ addopts = "--strict-config --strict-markers --doctest-modules --cov --cov-report
 branch = true
 source = "."
 omit = "setup.py"
+data_file = ".cache/coverage"
 
 
 ["setup.cfg".mypy]
 strict = true
 pretty = true
+cache_dir = ".cache/mypy"
 #show_column_numbers = true
 #show_error_codes = true
 #show_error_context = true
