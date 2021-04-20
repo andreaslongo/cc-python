@@ -2,6 +2,40 @@
 
 Use this template to bootstrap new Python projects fast and unified.
 
+
+== Usage
+
+[source,console]
+----
+$ cookiecutter https://github.com/andreaslongo/cc-python.git
+----
+
+
+== Features
+
+- https://github.com/jazzband/pip-tools[pip-tools] for Python dependency management
+- https://pytest.org/[pytest] for unit tests
+- http://mypy-lang.org/[mypy] for static type checks
+- https://flake8.pycqa.org[flake8] for static code analysis
+- https://github.com/PyCQA/bandit[Bandit] for security audit
+- https://github.com/psf/black[Black] for code format
+
+
+== Requirements
+
+This tools are language agnostic and don't belong to a single project.
+Install them locally for your user or globally for your system.
+
+- https://www.gnu.org/software/make/[GNU Make] for workflow automation
+- https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
+- https://github.com/andreoliwa/nitpick[Nitpick] for project configuration management
+- https://github.com/pyenv/pyenv[pyenv] for Python version management
+
+NOTE: I recommend https://github.com/pipxproject/pipx[pipx] for Python application management, but it is not required for this template.
+
+
+== Creating a project
+
 To create a new project, install and run https://github.com/cookiecutter/cookiecutter[Cookiecutter]
 
 [source,console]
@@ -17,20 +51,6 @@ $ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
 ----
 
 
-== Features
-
-- https://www.gnu.org/software/make/[GNU Make] for workflow automation
-- https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
-- https://github.com/andreoliwa/nitpick[Nitpick] for project configuration management
-- https://github.com/pyenv/pyenv[pyenv] for Python version management
-- https://github.com/jazzband/pip-tools[pip-tools] for Python dependency management
-- https://pytest.org/[pytest] for unit tests
-- http://mypy-lang.org/[mypy] for static type checks
-- https://flake8.pycqa.org[flake8] for static code analysis
-- https://github.com/PyCQA/bandit[Bandit] for security audit
-- https://github.com/psf/black[Black] for code format
-
-
 == Python Dependency Management
 
 [source,console]
@@ -42,15 +62,32 @@ python-project/
 | requirements.txt
 ----
 
-- `.in` files are dependencies
-- `.txt` files are pinned and hashed results of `pip-compile`
+- `.in` files contain the actual dependencies. Add your dependencies to this files manually.
+- `.txt` files are pinned and hashed results of `pip-compile`. Use this files to install your dependencies.
 
 === Environments
 
 Depending on the environment, the dependencies of Python packages may vary.
 
-Run `pip-compile` on each environment to generate different `.txt` files, valid for each environment.
-You can use the same `.in` file for all environments.
+An environment is (simplified): Operating system + Python version (3.8, 3.9, ...) + Python interpreter (CPython, PyPy, ...)
 
-- Environment (simplified) = Operating System + Python version (3.8, 3.9, ...) + Python interpreter (CPython, PyPy, ...)
-- https://github.com/jazzband/pip-tools#cross-environment-usage-of-requirementsinrequirementstxt-and-pip-compile[Cross-environment usage of `requirements.in`/`requirements.txt` and `pip-compile`]
+If your project supports multiple environments, run `pip-compile` on each environment to generate different `.txt` files, valid for each environment.
+You can use the same `.in` files for all environments.
+
+Do not use the same `.txt` files for different environments, even if the generated output is the same.
+Any change or update to dependencies or their sub-dependencies might introduce new environment dependent dependencies.
+
+An example `{environment}-requirements.txt` format:
+
+[source,console]
+----
+python-project/
+| requirements-dev.in
+| requirements-dev.txt
+| requirements.in
+| linux-py3.6-requirements.txt
+| macos-py3.7-requirements.txt
+| win32-py3.8-requirements.txt
+----
+
+See also: https://github.com/jazzband/pip-tools#cross-environment-usage-of-requirementsinrequirementstxt-and-pip-compile[Cross-environment usage of `pip-compile`]
