@@ -50,6 +50,32 @@ Or install and use https://github.com/pipxproject/pipx[pipx] (recommended)
 $ pipx run cookiecutter https://github.com/andreaslongo/cc-python.git
 ----
 
+NOTE: Make sure you are working in a Python virtual environment for the following steps.
+
+Compile the project dependencies
+
+[source,console]
+----
+cd python-project
+make compile-dependencies
+----
+
+Initialize the project for development
+
+[source,console]
+----
+make init
+----
+
+NOTE: You may have to refresh your shell environment before the next step.
+
+Run the example test suite
+
+[source,console]
+----
+make test
+----
+
 
 == Python Dependency Management
 

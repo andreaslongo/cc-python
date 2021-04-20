@@ -1,8 +1,20 @@
 = {{cookiecutter.project_name}}
 
+== Requirements for development
+
+This tools are language agnostic and don't belong to a single project.
+Install them locally for your user or globally for your system.
+
+- https://www.gnu.org/software/make/[GNU Make] for workflow automation
+- https://github.com/pre-commit/pre-commit[pre-commit] for Git hooks
+- https://github.com/andreoliwa/nitpick[Nitpick] for project configuration management
+- https://github.com/pyenv/pyenv[pyenv] for Python version management
+
+NOTE: I recommend https://github.com/pipxproject/pipx[pipx] for Python application management, but it is not required for this project.
+
 == Contributing
 
-Clone repository
+To contribute to this project, clone the repository
 
 [source,console]
 ----
@@ -10,14 +22,21 @@ $ git clone {{cookiecutter.github_repository}}
 $ cd {{cookiecutter.project_repository}}
 ----
 
-Create and enable virtual environment (requires `pyenv virtualenv`)
+Create and enable a Python virtual environment
 
 [source,console]
 ----
 $ make venv
 ----
 
-Initialize project for development (requires `pre-commit`)
+Initialize the project for development
+
+[source,console]
+----
+$ make init
+----
+
+Run the test suite
 
 [source,console]
 ----
