@@ -40,5 +40,5 @@ Run the test suite
 
 [source,console]
 ----
-$ make init
+$ make test
 ----

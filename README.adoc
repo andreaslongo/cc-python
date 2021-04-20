@@ -69,7 +69,7 @@ make init
 
 NOTE: You may have to refresh your shell environment before the next step.
 
-Run the example test suite
+Run the test suite
 
 [source,console]
 ----
