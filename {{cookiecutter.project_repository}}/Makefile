@@ -4,7 +4,7 @@
 
 .PHONY: venv
 venv:
-	pyenv virtualenv 3.9.1 {{cookiecutter.project_repository}}
+	pyenv virtualenv 3.9.5 {{cookiecutter.project_repository}}
 	pyenv local {{cookiecutter.project_repository}}
 
 
