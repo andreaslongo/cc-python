@@ -1,16 +1,47 @@
+---
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 6e2418c5521b7d606e72914dced3253f9ace1205  # frozen: v3.4.0
+    rev: 38b88246ccc552bffaaf54259d064beeee434539  # frozen: v4.0.1
     hooks:
       - id: detect-private-key
+        name: Detect private key
       - id: end-of-file-fixer
+        name: Fix end of files
       - id: fix-byte-order-marker
+        name: Fix utf-8 byte order marker
       - id: trailing-whitespace
+        name: Trim trailing whitespace
 
   - repo: local
     hooks:
-      - id: run-test-suite
+      - id: lint-nitpick
+        name: Lint project config files
+        language: system
+        entry: nitpick --offline run --check
+        types: [ini]
+
+      - id: lint-mypy
+        name: Lint static typing
+        language: system
+        entry: mypy
+        types: [python]
+
+      - id: lint-flake8
+        name: Lint flake8
+        language: system
+        entry: flake8
+        types: [python]
+
+      - id: lint-black
+        name: Lint code formatting
+        language: system
+        entry: black --check --diff --color --experimental-string-processing
+        types: [python]
+
+      - id: test-pytest
         name: Run test suite
         language: system
-        entry: make test
-        types: [python]
+        entry: pytest
+        pass_filenames: false
+        always_run: true
