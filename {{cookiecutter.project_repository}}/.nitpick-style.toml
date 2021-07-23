@@ -1,3 +1,5 @@
+---
+
 [nitpick]
 
 [nitpick.files.present]
@@ -42,16 +44,20 @@ select = "B, B9, C, E, F, S, W"
 # F: Fatals (PyFlakes)
 # S: Security (Bandit)
 # W: Warnings (pycodestyle)
+# Note: Flake8-Bandit codes start with S because B is reserved by Bugbear
 
 per-file-ignores = "test/*:S101"
-# ignore = B950, E203, W503
+# E501 is handeled by B950
+ignore = "E501"
 # B008: Do not perform function calls in argument defaults.
 # B950: Line too long (line is > max-line-length + 10%)
 # E203: Whitespace before ':', not PEP 8 compliant
 # E266: Too many leading '#' for block comment
 # E402: Import at top, too many circular import fixes
-# E501: Line too long (82 > 79 characters), handled by Bugbear B950
+# E501: Line too long (strict max-line-length)
 # E722: Bare except, handled by Bugbear B001
 # F811: Redefinition of unused function/method
 # S101: Use of assert detected.
+# S404: import_subprocess
+# S603: Test for use of subprocess without shell equals true
 # W503: Line break before binary operator, not PEP 8 compliant

@@ -1,5 +1,5 @@
 ###############################################################################
-# Environment
+# Project
 ###############################################################################
 
 .PHONY: venv
@@ -12,7 +12,7 @@ venv:
 init: _install_development _install_git_hooks
 	# Generate project config files
 	# TODO: Include in initial commit (don't rely on cookiecutter?)
-	nitpick --offline run
+	nitpick --offline fix
 
 
 .PHONY: _install_development
@@ -61,6 +61,9 @@ compile_dependencies:
 .PHONY: clean
 clean:
 	rm -rf .cache
+	rm -rf __pycache__
+	rm -rf test/__pycache__
+	rm -rf src/{{cookiecutter.project_slug}}/__pycache__
 
 ###############################################################################
 # Code
@@ -79,8 +82,8 @@ report:
 
 .PHONY: lint
 lint:
-	nitpick --offline run --check
+	nitpick --offline check
 	mypy .
 	flake8 .
-	black . --check
+	black . --check --diff --color --experimental-string-processing
 	@#isort . --check-only --diff
